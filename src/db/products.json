@@ -1,0 +1,17 @@
+{
+    "book1": {
+        "name": "book1",
+        "price": 10,
+        "stock": 12
+    },
+    "book2": {
+        "name": "book2",
+        "price": 15,
+        "stock": 1
+    },
+    "book3": {
+        "name": "book3",
+        "price": 7,
+        "stock": 5
+    }
+}
