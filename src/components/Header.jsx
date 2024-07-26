@@ -14,10 +14,10 @@ const SignUp = () => {
         setLogin(0)
     }
 
-        if (login === 0) {
-            return <button onClick={handleLogin}>Sign Up</button>
-        }
-        return <button onClick={handleExit}>Hello User!</button>
+    if (login === 0) {
+        return <button onClick={handleLogin}>Sign Up</button>
+    }
+    return <button onClick={handleExit}>Hello User!</button>
 }
 
 const ShopDesc = ({books}) => {
