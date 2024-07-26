@@ -1,10 +1,23 @@
+import { useState} from 'react';
 import Cart from "./Cart"
 import data from "../db/products.json"
 
 const SignUp = () => {
-    return (
-        <a href="#">Sign up</a>
-    )
+
+    const [login, setLogin] = useState(0);
+
+    function handleLogin() {
+        setLogin(1)
+    }
+
+    function handleExit() {
+        setLogin(0)
+    }
+
+        if (login === 0) {
+            return <button onClick={handleLogin}>Sign Up</button>
+        }
+        return <button onClick={handleExit}>Hello User!</button>
 }
 
 const ShopDesc = ({books}) => {
