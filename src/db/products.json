@@ -1,17 +1,72 @@
-{
-    "book1": {
-        "name": "book1",
-        "price": 10,
-        "stock": 12
-    },
-    "book2": {
-        "name": "book2",
-        "price": 15,
-        "stock": 1
-    },
-    "book3": {
-        "name": "book3",
-        "price": 7,
-        "stock": 5
-    }
-}
+[
+  {
+    "id": 1,
+    "name": "The Enchanted Forest",
+    "author": "Luna Wilder",
+    "stock": 12,
+    "price": 15.99
+  },
+  {
+    "id": 2,
+    "name": "Mysteries of the Deep",
+    "author": "Caleb Stone",
+    "stock": 8,
+    "price": 12.50
+  },
+  {
+    "id": 3,
+    "name": "Galactic Odyssey",
+    "author": "Orion Sky",
+    "stock": 5,
+    "price": 18.75
+  },
+  {
+    "id": 4,
+    "name": "The Lost Kingdom",
+    "author": "Elara Moon",
+    "stock": 14,
+    "price": 10.99
+  },
+  {
+    "id": 5,
+    "name": "Echoes of Eternity",
+    "author": "Rowan Ash",
+    "stock": 7,
+    "price": 13.45
+  },
+  {
+    "id": 6,
+    "name": "Realm of Shadows",
+    "author": "Lyra Night",
+    "stock": 10,
+    "price": 11.99
+  },
+  {
+    "id": 7,
+    "name": "The Alchemist's Secret",
+    "author": "Felix Frost",
+    "stock": 6,
+    "price": 16.30
+  },
+  {
+    "id": 8,
+    "name": "Whispers of the Past",
+    "author": "Cassia Blake",
+    "stock": 9,
+    "price": 14.20
+  },
+  {
+    "id": 9,
+    "name": "Chronicles of the Ancients",
+    "author": "Jasper Ray",
+    "stock": 11,
+    "price": 19.99
+  },
+  {
+    "id": 10,
+    "name": "Voyage to Nowhere",
+    "author": "Seren Waters",
+    "stock": 4,
+    "price": 9.50
+  }
+]
