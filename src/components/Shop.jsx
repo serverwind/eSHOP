@@ -33,11 +33,11 @@ const Book = () => {
 const Shop = () => {
 
     return (
-      <main className="flex flex-col gap-4 mx-4">
+      <main className="flex flex-col gap-4 m-4">
             <Filter />
             <section>
                 <h2 className="text-4xl mb-4 font-bold">Offers</h2>
-                <div className="flex flex-col sm:grid sm:grid-cols-3 gap-4">
+              <div className="flex flex-col sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     <Book />
                 </div>
             </section>
