@@ -1,6 +1,6 @@
-import { useState} from 'react';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 import Cart from "./Cart"
-import data from "../db/products.json"
 
 const SignUp = () => {
 
@@ -30,7 +30,19 @@ const ShopDesc = ({books}) => {
 }
 
 const Header = () => {
-    const BOOKS = Object.keys(data).length;
+  const [amount, setAmount] = useState(0);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:3001/0")
+      .then((response) => {
+        const BOOKS = response.data.books;
+        setAmount(Object.keys(BOOKS).length);
+      })
+      .catch((error) => {
+        console.error("There was an error fetching the books!", error);
+      });
+  }, []);
 
     return (
         <header className='h-screen bg-blue-400 grid grid-rows-[auto,_1fr] p-4'>
@@ -38,7 +50,7 @@ const Header = () => {
                 <Cart />
                 <SignUp />
             </div>
-            <ShopDesc books={BOOKS} />
+            <ShopDesc books={amount} />
         </header>
     )
 }
