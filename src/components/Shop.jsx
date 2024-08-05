@@ -38,9 +38,9 @@ const Shop = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3001/0")
+      .get("http://localhost:3001/books")
       .then((response) => {
-        setBooks(response.data.books);
+        setBooks(response.data);
       })
       .catch((error) => {
         console.error("There was an error fetching the books!", error);

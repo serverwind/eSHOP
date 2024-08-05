@@ -34,9 +34,9 @@ const Header = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3001/0")
+      .get("http://localhost:3001/books")
       .then((response) => {
-        const BOOKS = response.data.books;
+        const BOOKS = response.data;
         setAmount(Object.keys(BOOKS).length);
       })
       .catch((error) => {
