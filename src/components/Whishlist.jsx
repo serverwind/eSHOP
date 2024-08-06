@@ -1,28 +1,50 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const Order = ({ whishes, handleRemove }) => {
+const Order = ({ whish, handleRemove, handleUpdate }) => {
+  const [button, setButton] = useState('block')
   const [input, setInput] = useState('hidden')
-  const [buttons, setButtons] = useState('block')
 
-  function handleInput() {
+  function handleButtons() {
+    setButton('hidden')
     setInput('block')
-    setButtons('hidden')
   }
 
+  function handleSave(id) {
+    let value = document.getElementById('new-book').value
+    axios.put(`http://localhost:3001/whishlist/${id}`, {
+      book: value
+    })
+    .then((response) => {
+      handleUpdate(response.data);
+      setInput('hidden');
+      setButton('block');
+    })
+    .catch((error) => {
+      console.error("There was an error updating the wish!", error);
+    });
+  }
+
+  return(
+    <>
+      <div className="text-xl font-bold mb-2"> {whish.book} </div>
+      <div className={ `mb-2 flex gap-2 ${ input }` }>
+        <input id="new-book" type="text" />
+        <button onClick={() => handleSave(whish.id)} className="bg-blue-300 rounded py-2 px-4 text-sm">Save</button>
+    </div>
+        <div className={ `flex gap-2 ${ button }` }>
+        <button onClick={handleButtons} className="bg-blue-300 rounded p-2 text-sm">Edit</button>
+        <button onClick={handleRemove} className="bg-blue-400 rounded p-2 text-sm"> Remove </button>
+    </div>
+    </>
+  )
+}
+
+
+const Orders = ({ whishes, handleRemove, handleUpdate }) => {
   return whishes.map((whish) => (
     <div className="grid bg-blue-200 min-h-36 justify-center content-center text-center py-4 rounded" key={whish.id}>
-      <div className="text-xl font-bold mb-2"> {whish.book} </div>
-      <div className={`mb-2 flex gap-2 ${input}`}>
-        <input type="text" />
-        <button className="bg-blue-300 rounded py-2 px-4 text-sm">Save</button>
-      </div>
-      <div className={ `flex gap-2 ${buttons}` }>
-        <button onClick={handleInput} className="bg-blue-300 rounded p-2 text-sm">Edit</button>
-        <button onClick={() => handleRemove(whish.id)} className="bg-blue-400 rounded p-2 text-sm">
-          Remove
-        </button>
-      </div>
+      <Order whish={whish} handleRemove={handleRemove} handleUpdate={handleUpdate} />
     </div>
   ));
 };
@@ -85,6 +107,14 @@ const Form = () => {
       });
   }
 
+// обновление данных после изменения в бд (Order)
+
+const handleUpdate = (updatedWhish) => {
+    setWhish(
+      whishes.map((whish) => (whish.id === updatedWhish.id ? updatedWhish : whish))
+    );
+};
+
   return (
     <div className="flex flex-col gap-4">
       <textarea id="book" className="border border-blue-400 min-h-16 rounded" type="text" />
@@ -93,7 +123,7 @@ const Form = () => {
       </button>
       <div className="flex flex-col gap-4">
         <h3 className="text-3xl mt-8 font-bold">Orders</h3>
-        <Order whishes={whishes} handleRemove={handleRemove} />
+        <Orders whishes={whishes} handleRemove={handleRemove} handleUpdate={handleUpdate} />
         <p>Your books will be added to store as soon as possible!</p>
       </div>
     </div>
