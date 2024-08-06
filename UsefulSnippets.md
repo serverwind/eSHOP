@@ -1,23 +1,23 @@
 ## первоначально грузим данные из базы данных и выводим их. После этого, если пользователь добавил что то в свой вишлист и это сохранилось в бд - сразу без обновления страницы выводим это во фронтенд
 
-  const [order, setOrder] = useState([]);
-  const [whishes, setWhish] = useState([]);
+const [order, setOrder] = useState([]);
+const [whishes, setWhish] = useState([]);
 
-  // первоначальная загрузка данных
-   useEffect(() => {
-        axios
-          .get("http://localhost:3001/whishlist")
-          .then((response) => {
-            setWhish(response.data);
-          })
-          .catch((error) => {
-            console.error("There was an error fetching the books!", error);
-          });
-      }, []);
+// первоначальная загрузка данных
+useEffect(() => {
+axios
+.get("http://localhost:3001/whishlist")
+.then((response) => {
+setWhish(response.data);
+})
+.catch((error) => {
+console.error("There was an error fetching the books!", error);
+});
+}, []);
 
-  // прием и сохранение запроса в бд + моментальный вывод новых данных (юзер сделал новый заказ - он виден во фронтенде без перезагрузки)
-  function handleOrder() {
-    let value = document.getElementById("book").value;
+// прием и сохранение запроса в бд + моментальный вывод новых данных (юзер сделал новый заказ - он виден во фронтенде без перезагрузки)
+function handleOrder() {
+let value = document.getElementById("book").value;
 
     if (value != "") {
       let whish = {
@@ -41,4 +41,19 @@
 
       value = "";
     }
-  }
+
+}
+
+## удаление из бд
+
+ВАЖНО! Номер ID в db.json должен быть заключён в кавычки!!! Иначе сервер выдает ошибку 404, типа нет такого поста (потратил час чтобы понять, нигде об этом не пишется).
+
+function handleRemove(id) {
+axios.delete(`http://localhost:3001/whishlist/${id}`)
+.then((response) => {
+console.log(response);
+})
+.catch((error) => {
+console.error("There was an error fetching the books!", error);
+})
+}
