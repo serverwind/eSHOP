@@ -71,14 +71,5 @@
       "price": 9.5
     }
   ],
-  "whishlist": [
-    {
-      "book": "ccc",
-      "id": "921"
-    },
-    {
-      "book": "qqz",
-      "id": "312"
-    }
-  ]
+  "whishlist": []
 }

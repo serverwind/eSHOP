@@ -11,7 +11,10 @@ const Order = ({ whish, handleRemove, handleUpdate }) => {
   }
 
   function handleSave(id) {
-    let value = document.getElementById('new-book').value
+    let inputs = document.querySelectorAll('.edit-input') // возвращает Node List, что не является Array
+    let inputsArray = Array.from(inputs) // преобразование Node List в Array
+    let value = inputsArray.find(( input ) => input.getAttribute('id') === id).value;
+
     axios.put(`http://localhost:3001/whishlist/${id}`, {
       book: value
     })
@@ -29,12 +32,12 @@ const Order = ({ whish, handleRemove, handleUpdate }) => {
     <>
       <div className="text-xl font-bold mb-2"> {whish.book} </div>
       <div className={ `mb-2 flex gap-2 ${ input }` }>
-        <input id="new-book" type="text" />
+        <input id={whish.id} className="edit-input" type="text" />
         <button onClick={() => handleSave(whish.id)} className="bg-blue-300 rounded py-2 px-4 text-sm">Save</button>
     </div>
         <div className={ `flex gap-2 ${ button }` }>
         <button onClick={handleButtons} className="bg-blue-300 rounded p-2 text-sm">Edit</button>
-        <button onClick={handleRemove} className="bg-blue-400 rounded p-2 text-sm"> Remove </button>
+        <button onClick={() => handleRemove(whish.id)} className="bg-blue-400 rounded p-2 text-sm"> Remove </button>
     </div>
     </>
   )
