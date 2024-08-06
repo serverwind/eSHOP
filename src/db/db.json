@@ -73,24 +73,16 @@
   ],
   "whishlist": [
     {
-      "id": 1,
+      "id": "1",
       "book": "qq"
     },
     {
-      "id": 2,
-      "book": "qqz"
+      "id": 145,
+      "book": "xxx"
     },
     {
-      "id": 1,
-      "book": "zz"
-    },
-    {
-      "id": 2,
-      "book": "zz"
-    },
-    {
-      "id": 1,
-      "book": "w"
+      "id": 634,
+      "book": "qe"
     }
   ]
 }
