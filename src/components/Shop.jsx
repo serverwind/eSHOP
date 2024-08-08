@@ -41,7 +41,7 @@ const Buy = ({ price, book }) => {
   if (status) {
     return (
       <button onClick={handleStatus} className="bg-blue-400 rounded">
-        Added to cart
+        Remove from cart
       </button>
     );
   }

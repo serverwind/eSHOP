@@ -93,6 +93,13 @@
       "author": "Lyra Night",
       "stock": 10,
       "price": 11.99
+    },
+    {
+      "id": "5",
+      "name": "Echoes of Eternity",
+      "author": "Rowan Ash",
+      "stock": 7,
+      "price": 13.45
     }
   ]
 }
