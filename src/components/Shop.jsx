@@ -4,16 +4,39 @@ import Filter from "./Filter";
 
 const Buy = ({ price, book }) => {
   const [status, setStatus] = useState(false);
+  const [cartNum, setCartNum] = useState(0);
 
-  function handleStatus() {
+  const handleStatus = () => {
     if (status) {
       setStatus(false);
       axios.delete(`http://localhost:3001/cart/${book.id}`)
+        .then(() => {
+          updateCartCount();
+        });
     } else {
       setStatus(true);
-      axios.post('http://localhost:3001/cart', {...book})
+      axios.post('http://localhost:3001/cart', { ...book })
+        .then(() => {
+          updateCartCount();
+        });
     }
-  }
+  };
+
+  const updateCartCount = () => {
+    axios.get("http://localhost:3001/cart")
+      .then((response) => {
+        setCartNum(response.data.length);
+      });
+  };
+
+  useEffect(() => {
+    updateCartCount();
+  }, [status]);
+
+  useEffect(() => {
+    document.getElementById("cart-count").innerHTML = cartNum;
+  }, [cartNum]);
+
 
   if (status) {
     return (

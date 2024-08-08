@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+hr {
+  @apply border border-blue-400 w-11/12;
+}
