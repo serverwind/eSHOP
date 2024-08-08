@@ -71,5 +71,63 @@
       "price": 9.5
     }
   ],
-  "whishlist": []
+  "whishlist": [],
+  "cart": [
+    {
+      "id": "2",
+      "name": "Mysteries of the Deep",
+      "author": "Caleb Stone",
+      "stock": 8,
+      "price": 12.5
+    },
+    {
+      "id": "1",
+      "name": "The Enchanted Forest",
+      "author": "Luna Wilder",
+      "stock": 12,
+      "price": 15.99
+    },
+    {
+      "id": "3",
+      "name": "Galactic Odyssey",
+      "author": "Orion Sky",
+      "stock": 5,
+      "price": 18.75
+    },
+    {
+      "id": "5",
+      "name": "Echoes of Eternity",
+      "author": "Rowan Ash",
+      "stock": 7,
+      "price": 13.45
+    },
+    {
+      "id": "4",
+      "name": "The Lost Kingdom",
+      "author": "Elara Moon",
+      "stock": 14,
+      "price": 10.99
+    },
+    {
+      "id": "6",
+      "name": "Realm of Shadows",
+      "author": "Lyra Night",
+      "stock": 10,
+      "price": 11.99
+    },
+    {
+      "id": "1",
+      "name": "The Enchanted Forest",
+      "author": "Luna Wilder",
+      "stock": 12,
+      "price": 15.99
+    },
+    {
+      "id": "3",
+      "name": "Galactic Odyssey",
+      "author": "Orion Sky",
+      "stock": 5,
+      "price": 18.75
+    }
+  ]
 }

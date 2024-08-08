@@ -2,11 +2,17 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Filter from "./Filter";
 
-const Buy = ({ price }) => {
+const Buy = ({ price, book }) => {
   const [status, setStatus] = useState(false);
 
   function handleStatus() {
-    status ? setStatus(false) : setStatus(true);
+    if (status) {
+      setStatus(false);
+      axios.delete(`http://localhost:3001/cart/${book.id}`)
+    } else {
+      setStatus(true);
+      axios.post('http://localhost:3001/cart', {...book})
+    }
   }
 
   if (status) {
@@ -28,7 +34,7 @@ const Book = ({ books }) => {
     <div className="grid bg-blue-200 min-h-36 justify-center text-center py-4 rounded" key={book.id}>
       <div className="text-xl">{book.name}</div>
       <div className="font-bold">{book.author}</div>
-      <Buy price={book.price} />
+      <Buy price={book.price} book={book} />
     </div>
   ));
 };
